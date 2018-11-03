@@ -162,6 +162,7 @@
                 ============================================================ -->
             <div class=tab v-show="tab == 2">
                 <table class="mt20 table">
+                    <tr>
                         <pre><code class=language-javascript v-html=formatCode></code></pre>
                     </tr>
                 </table>

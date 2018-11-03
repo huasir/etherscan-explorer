@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
+
 import me.bing.web3j.app.mapper.AccountMapper;
 import me.bing.web3j.app.mapper.BlockMapper;
 import me.bing.web3j.app.mapper.TransactionMapper;
@@ -101,15 +102,15 @@ public class EthService {
     }
 
     public PageIterator<Transaction> pendingTransactions(int page, int pageSize, String address) throws IOException {
-        List<Transaction> txs
-            = ConverterFunctionUtil.toPendingTransaction.apply(web3j.txPoolContent().send().getPendingTransactions());
+        List<org.web3j.protocol.core.methods.response.Transaction> txxw = web3j.txPoolContent().send().getPendingTransactions();
+        List<Transaction> txs = ConverterFunctionUtil.toPendingTransaction.apply(txxw);
 
         PageIterator<Transaction> result = PageIterator.create(page, pageSize, txs.size());
 
         if (StringUtils.isNotEmpty(address)) {
             txs = txs.stream()
-                .filter(tx -> (tx.getFrom().equals(address) || tx.getTo().equals(address)))
-                .collect(Collectors.toList());
+                    .filter(tx -> (tx.getFrom().equals(address) || tx.getTo().equals(address)))
+                    .collect(Collectors.toList());
         }
 
         result.setData(txs.subList(Math.max(0, (page - 1) * pageSize), Math.min(txs.size(), page * pageSize)));
@@ -122,8 +123,8 @@ public class EthService {
     }
 
     public Transaction loadPendingTransaction(String hash) throws IOException {
-        List<Transaction> txs
-            = ConverterFunctionUtil.toPendingTransaction.apply(web3j.txPoolContent().send().getPendingTransactions());
+        List<org.web3j.protocol.core.methods.response.Transaction> txxw = web3j.txPoolContent().send().getPendingTransactions();
+        List<Transaction> txs = ConverterFunctionUtil.toPendingTransaction.apply(txxw);
         txs = txs.stream().filter(tx -> tx.getHash().equals(hash)).collect(Collectors.toList());
         if (!txs.isEmpty()) {
             return txs.get(0);
@@ -160,6 +161,6 @@ public class EthService {
     }
 
     public List<Transaction> listTransactionInBlock(Long blockNumber) {
-        return null == blockNumber? new ArrayList<>() : transactionMapper.listByBlock(blockNumber);
+        return null == blockNumber ? new ArrayList<>() : transactionMapper.listByBlock(blockNumber);
     }
 }
