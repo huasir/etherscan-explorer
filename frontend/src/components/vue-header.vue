@@ -23,6 +23,14 @@
         visibility: hidden;
     }
 
+    .btn-u {
+        background: #3498db;
+        border: 0;
+        color: #fff;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
     @media (min-width: 992px) {
         .vue-header .navbar-nav>li>a {
             border-bottom: 2px solid transparent;
@@ -94,8 +102,16 @@
                     -->
                 </ul>
                 <form class=form-inline v-on:submit.prevent=onSubmit>
-                    <input class="form-control mr-sm-2" v-model=search type=search placeholder=Search>
-                    <button class="btn btn-outline-success" type=submit>GO</button>
+                    <div style="display: inline; height: 31px;">
+                     <input class="form-control mr-sm-2" v-model=search maxlength="66" style="width: 350px; height: 31px;
+                      font-size: inherit; padding: 1px;margin-top: -3px;"
+                           type=search placeholder="Search by Address / Txhash / Block " autocomplete="off">
+                     <span style="display: inline;">
+                         <button class="btn-u" type="submit"
+                                  style="height: 31px; width: 41px;
+                                 margin-left: -13px;">GO</button>
+                     </span>
+                    </div>
                 </form>
             </div>
         </div>
