@@ -52,15 +52,15 @@
                 <div class=col-3>
                     <div>
                         <span class="fa fa-github" aria-hidden=true></span>
-                        <a target=_blank href=https://github.com/EthereumAIFoundation>Github.com/EthereumAIFoundation</a>
+                        <a target=_blank href=https://github.com>Github.com</a>
                     </div>
                     <div>
                         <span class="fa fa-github" aria-hidden=true></span>
-                        <a target=_blank href=https://github.com/EthereumAIFoundation>Issue</a>
+                        <a target=_blank href=https://github.com>Issue</a>
                     </div>
                     <div>
                         <span class="fa fa-github" aria-hidden=true></span>
-                        <a target=_blank href=https://github.com/EthereumAIFoundation>Commit: cec79ba</a>
+                        <a target=_blank href=https://github.com>Commit</a>
                     </div>
                 </div>
             </div>

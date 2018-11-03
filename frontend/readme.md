@@ -38,8 +38,8 @@ npm run build
 
 ## 参考
 
-http://fontawesome.io/icons/  
-http://prismjs.com/  
+http://fontawesome.io/icons/
+http://prismjs.com/
 https://github.com/beautify-web/js-beautify
 
 https://stackoverflow.com/questions/7101464/how-to-get-highcharts-dates-in-the-x-axis
@@ -110,7 +110,7 @@ contract address
 ===== 2.9 修改
 
 --> block  time ago   block 相关时间显示问题 {每隔五秒一个快} -----> 换成浏览器时间 浏览器时间减去后边标准时间
---> timestamp 
+--> timestamp
 --> block information
     -->  gas reward
     --> 缺少第几个朝代相关信息
@@ -120,19 +120,19 @@ contract address
 --> tx详情页
     --> transation hash url链接
     --> gaslimit  无单位
-    --> gasprice  
+    --> gasprice
 --> oops 错误信息展示
 
 --> charts 数据更新 + 数据显示 数字百分位显示好看一些
 
 ===== todo
 
-block infomation 里面 详情 朝代信息 - 是否达到 lib - 最后的一个不可改变的区块，达到 lib 此链不可改  
+block infomation 里面 详情 朝代信息 - 是否达到 lib - 最后的一个不可改变的区块，达到 lib 此链不可改
 address 前生成图标, 参考 eserscan 算法
 
 ==================== 上传 - 没用到这个
 
-Host neb-cal-explorer  
-HostName 52.53.225.118  
-IdentityFile ~/.ssh/id_rsa  
+Host neb-cal-explorer
+HostName 52.53.225.118
+IdentityFile ~/.ssh/id_rsa
 User app

@@ -4,7 +4,7 @@
     }
 
     .vue-home .mt16 {
-        margin-top: 16px;
+        margin-top: 5px;
     }
 
     .vue-home .list {
@@ -38,7 +38,8 @@
         background-color: #fff;
         border-bottom: 4px solid #f7f7f7;
         display: flex;
-        height: 120px;
+        height: 95px;
+        padding: 10px;
     }
 
     .vue-home li .monospace {
@@ -48,6 +49,7 @@
     }
 
     .vue-home .blocks li .monospace {
+        margin-top: 5px;
         width: 350px;
     }
 
@@ -56,11 +58,12 @@
     }
 
     .vue-home .blocks li>.img {
-        background: url(/static/img/block_bg.jpg) center no-repeat;
+        background-color: #808080;
         flex-shrink: 0;
-        margin-right: 20px;
-        height: 90px;
-        width: 160px;
+        height: 65px;
+        width: 135px;
+        padding: 7px 10px 4px 10px;
+        margin-right: 13px;
     }
 
     .vue-home .blocks li>.img>* {
@@ -125,29 +128,30 @@
         */
 
     .vue-home #chart {
-        height: 300px;
-        max-width: 800px;
+        height: 225px;
+        max-width: 950px;
     }
 
-    .vue-home .chart_banner .name,
-    .value {
-        color: black;
-        border-bottom: 1px inset;
-        margin-left: 12px;
-        margin-right: 12px;
+    .vue-home .chart_banner{
+        background-color: #3498DB;
+        padding: 20px;
+        height: 225px;
     }
 
+    .vue-home .chart_banner {
+        color: whitesmoke;
+    }
     .vue-home .chart_banner .name {
-        font-size: 30px;
+        font-size: 15px;
     }
 
     .vue-home .chart_banner .value {
-        font-size: 60px;
+        font-size: 30px;
     }
 
     .vue-home .chart_banner .msg {
         font-size: 16px;
-        margin-top: 24px;
+        margin-top: 10px;
     }
 
     .vue-home .chart_banner .msg div {
@@ -157,7 +161,6 @@
     .vue-home .chart_banner .msg .msg_change_right {
         float: right;
         margin-right: 10px;
-        color: black;
     }
 
     .vue-home .chart_banner .msg .red {
@@ -170,8 +173,6 @@
 
     .vue-home .chart_banner .msg .msg_change_left {
         margin-left: 10px;
-        color: black;
-
     }
 
     .vue-home text.highcharts-credits {
@@ -186,12 +187,9 @@
     <div class="container vue-home">
         <div class=top>
             <div class=row>
-                <div class=col-md-8>
-                    <div id=chart></div>
-                </div>
-                <div class=col-md-4>
+                <div class=col-md-6>
                     <div class=chart_banner v-if=market>
-                        <div class=name>Ether</div>
+                        <div class=name>Tch</div>
                         <div class=value>$ {{ market.price }}</div>
                         <div class=msg>
                             <div class=msg_change>
@@ -209,6 +207,11 @@
                         </div>
                         <div class="mt16 updataTime">update time : {{ timeConversion(Date.now() - market.createdAt) }} ago</div>
                     </div>
+                </div>
+                <div class=col-md-6>
+                    <div id=chart style="padding: 20px; border-right-color: #3498db; border-right-style: solid;
+                     border-right-width: 2px;border-left-color: #3498db; border-left-style: solid;
+                     border-left-width: 2px; margin-bottom: 0px; background-color: #FFFFFF;box-shadow: 0 10px 6px -6px #bbb;"></div>
                 </div>
             </div>
         </div>
@@ -291,58 +294,74 @@
             return {
                 blocks: [],
                 chartConfig: {
-                    legend: {
-                        align: "right",
-                        layout: "vertical",
-                        verticalAlign: "middle"
-                    },
-                    // plotOptions: {
-                    //     area: {
-                    //         fillColor: {
-                    //             linearGradient: {
-                    //                 x1: 0,
-                    //                 y1: 0,
-                    //                 x2: 0,
-                    //                 y2: 1
-                    //             },
-                    //             stops: [
-                    //                 [0, "#2233ee"],
-                    //                 [1, "#2266ee00"]
-                    //             ]
-                    //         },
-                    //         marker: {
-                    //             radius: 2
-                    //         },
-                    //         lineWidth: 1,
-                    //         states: {
-                    //             hover: {
-                    //                 lineWidth: 1
-                    //             }
-                    //         },
-                    //         threshold: null
-                    //     }
+                    // legend: {
+                    //     align: "right",
+                    //     layout: "vertical",
+                    //     verticalAlign: "middle"
                     // },
+                    chart: {
+                        type: 'line',
+                        spacingBottom: 0,
+                        spacingTop: 0,
+                        spacingLeft: 0,
+                        spacingRight: 0,
+                    },
                     series: [{
                         data: null,
-                        name: "transactions"
+                        name: "Transactions",
+                        allowPointSelect: true
                         // , type: "area"
                     }],
-                    subtitle: {
-                        text: "数据来源：Ethereum"
+                    legend: {
+                        enabled: false
+                    },
+                    exporting: {
+                        enabled: false
+                    },
+                    credits: {
+                        enabled: false
                     },
                     title: {
-                        text: "transactions"
+                        text: 'Tchianup Transaction History in 14 days',
+                        style: {
+                            fontSize: '13px'
+                        }
+                    },
+                    tooltip: {
+                        formatter: function () {
+                            return '<span style="font-size:10px">' + this.point.friendlydate + '</span><br><table><tr><td style="padding:0">' +
+                                '<span style="color:' + this.series.color + '">Transactions: </a></span><b>' + this.point.y + '</b><br>'
+                            '</td></tr></table>';
+                        }
+                    },
+                    plotOptions: {
+                        series: {
+                            animation: {
+                                duration: 0
+                            },
+                            point: {
+                                events: {
+                                    select: function (e) {
+                                        location.href = 'txs?dt=' + this.options.dt;
+                                    }
+                                }
+                            }
+                        },
+                        column: {
+                            pointPadding: 0.1,
+                            borderWidth: 0
+                        }
                     },
                     xAxis: {
-                        labels: {
-                            format: "{value:%m-%d}",
-                            rotation: -30
-                        },
+                        title: { text: '' },
                         type: "datetime"
                     },
                     yAxis: {
+                        labels: {
+                            enabled: true
+                        },
                         title: {
-                            text: "数量"
+                            text: null
                         }
                     }
                 },
