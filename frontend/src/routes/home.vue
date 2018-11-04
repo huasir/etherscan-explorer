@@ -103,7 +103,7 @@
     }
 
     .vue-home .txs li tr>td:first-child {
-        height: 28px;
+        height: 20px;
         width: 40px;
     }
 
