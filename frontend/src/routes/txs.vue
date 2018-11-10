@@ -59,7 +59,7 @@
                     <td>
                         <router-link v-bind:to='fragApi + "/block/" + o.block.height'>{{ o.block.height }}</router-link>
                     </td>
-                    <!-- 
+                    <!--
                     <td>
                         <template v-if=txs.isPending>
                             <span> pending </span>
@@ -67,7 +67,7 @@
                         <template v-else>
                             <router-link v-if=o.block v-bind:to='fragApi + "/block/" + o.block.height'>{{o.block.height}}</router-link>
                         </template>
-                         <router-link v-bind:to='fragApi + "/block/" + o.block.height'>{{ o.block.height }}</router-link> 
+                         <router-link v-bind:to='fragApi + "/block/" + o.block.height'>{{ o.block.height }}</router-link>
                     </td>
                     -->
                     <td class=time>
@@ -83,7 +83,7 @@
                     <td class=tdxxxwddd>
                         <router-link v-bind:to='fragApi + "/address/" + o.to.hash'>{{ o.to.hash }}</router-link>
                     </td>
-                    <td class=text-right>{{ easyNumber(o.value/1000000000000000000) }} Eth</td>
+                    <td class=text-right>{{ easyNumber(o.value/1000000000000000000) }} Tch</td>
                     <td class=text-right>{{ toWei(o.txFee) }}</td>
                 </tr>
             </table>

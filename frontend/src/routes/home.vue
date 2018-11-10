@@ -322,7 +322,7 @@
                         enabled: false
                     },
                     title: {
-                        text: 'Tchianup Transaction History in 14 days',
+                        text: 'Tchainup Transaction History in 14 days',
                         style: {
                             fontSize: '13px'
                         }

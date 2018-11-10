@@ -160,7 +160,7 @@ function timeConversionSec(millisec) {
 
 function toWei(n) {
     // "kNas", "MNas", "GNas", "TNas", "PNas", "ENas", "ZNas", "YNas"
-    var arr = ["Wei", "kWei", "MWei", "GWei", "TWei", "PWei", "Eth"],
+    var arr = ["tt", "Ktt", "Mtt", "Gtt", "Ttt", "Ptt", "Tch"],
         i, len = arr.length - 1;
 
     for (i = 0, n = +n || 0; i < len && n >= 1000; ++i, n /= 1000);
@@ -185,7 +185,7 @@ function ua() {
     // Firefox 1.0+
     var isFirefox = typeof InstallTrigger !== 'undefined';
 
-    // Safari 3.0+ "[object HTMLElementConstructor]" 
+    // Safari 3.0+ "[object HTMLElementConstructor]"
     var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
 
     // Internet Explorer 6-11
@@ -220,7 +220,7 @@ function yyyymmdd(dateNow) {
 
 function getEthereumaiNetHost(net){
     var mainnet = 'https://mainnet.ethereumai.io/v1'
-    
+
     if(!net){
         return mainnet
     }

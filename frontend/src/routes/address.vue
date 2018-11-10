@@ -71,8 +71,8 @@
                     </th>
                 </tr>
                 <tr>
-                    <td>Eth Balance:</td>
-                    <td>{{ easyNumber(obj.address.balance/1000000000000000000) }} Eth </td>
+                    <td>Tch Balance:</td>
+                    <td>{{ easyNumber(obj.address.balance/1000000000000000000) }} Tch </td>
                 </tr>
                 <tr>
                     <td>Nonce:</td>
@@ -149,7 +149,7 @@
                             <span v-if="o.to.hash == $route.params.id">{{ o.to.alias || o.to.hash }}</span>
                             <router-link v-else v-bind:to='fragApi + "/address/" + o.to.hash'>{{ o.to.alias || o.to.hash }}</router-link>
                         </td>
-                        <td>{{ easyNumber(o.value/1000000000000000000) }} Eth</td>
+                        <td>{{ easyNumber(o.value/1000000000000000000) }} Tch</td>
                         <td class=txfee>
                             <span v-if=o.block.height>{{ toWei(o.txFee) }}</span>
                             <i v-else>(pending)</i>
