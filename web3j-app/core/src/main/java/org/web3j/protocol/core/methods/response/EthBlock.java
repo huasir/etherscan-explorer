@@ -56,7 +56,7 @@ public class EthBlock extends Response<EthBlock.Block> {
         private String stateRoot;
         private String receiptsRoot;
         private String author;
-        private String miner;
+        private String coinbase;
         private String mixHash;
         private String difficulty;
         private String totalDifficulty;
@@ -74,7 +74,7 @@ public class EthBlock extends Response<EthBlock.Block> {
 
         public Block(String number, String hash, String parentHash, String nonce,
                      String sha3Uncles, String logsBloom, String transactionsRoot,
-                     String stateRoot, String receiptsRoot, String author, String miner, 
+                     String stateRoot, String receiptsRoot, String author, String coinbase,
                      String mixHash, String difficulty, String totalDifficulty, String extraData, 
                      String size, String gasLimit, String gasUsed, String timestamp,
                      List<TransactionResult> transactions, List<String> uncles,
@@ -89,7 +89,7 @@ public class EthBlock extends Response<EthBlock.Block> {
             this.stateRoot = stateRoot;
             this.receiptsRoot = receiptsRoot;
             this.author = author;
-            this.miner = miner;
+            this.coinbase = coinbase;
             this.mixHash = mixHash;
             this.difficulty = difficulty;
             this.totalDifficulty = totalDifficulty;
@@ -191,12 +191,12 @@ public class EthBlock extends Response<EthBlock.Block> {
             this.author = author;
         }
 
-        public String getMiner() {
-            return miner;
+        public String getCoinbase() {
+            return coinbase;
         }
 
-        public void setMiner(String miner) {
-            this.miner = miner;
+        public void setCoinbase(String coinbase) {
+            this.coinbase = coinbase;
         }
 
         public String getMixHash() {
@@ -368,8 +368,8 @@ public class EthBlock extends Response<EthBlock.Block> {
                     ? !getAuthor().equals(block.getAuthor()) : block.getAuthor() != null) {
                 return false;
             }
-            if (getMiner() != null
-                    ? !getMiner().equals(block.getMiner()) : block.getMiner() != null) {
+            if (getCoinbase() != null
+                    ? !getCoinbase().equals(block.getCoinbase()) : block.getCoinbase() != null) {
                 return false;
             }
             if (getMixHash() != null
@@ -437,7 +437,7 @@ public class EthBlock extends Response<EthBlock.Block> {
             result = 31 * result + (getStateRoot() != null ? getStateRoot().hashCode() : 0);
             result = 31 * result + (getReceiptsRoot() != null ? getReceiptsRoot().hashCode() : 0);
             result = 31 * result + (getAuthor() != null ? getAuthor().hashCode() : 0);
-            result = 31 * result + (getMiner() != null ? getMiner().hashCode() : 0);
+            result = 31 * result + (getCoinbase() != null ? getCoinbase().hashCode() : 0);
             result = 31 * result + (getMixHash() != null ? getMixHash().hashCode() : 0);
             result = 31 * result + (getDifficultyRaw() != null ? getDifficultyRaw().hashCode() : 0);
             result = 31 * result

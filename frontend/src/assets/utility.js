@@ -160,7 +160,7 @@ function timeConversionSec(millisec) {
 
 function toWei(n) {
     // "kNas", "MNas", "GNas", "TNas", "PNas", "ENas", "ZNas", "YNas"
-    var arr = ["tt", "Ktt", "Mtt", "Gtt", "Ttt", "Ptt", "Tch"],
+    var arr = ["tt", "Ktt", "Mtt", "Gtt", "Ttt", "Ptt", "Tch","Ktch"],
         i, len = arr.length - 1;
 
     for (i = 0, n = +n || 0; i < len && n >= 1000; ++i, n /= 1000);

@@ -29,7 +29,7 @@ public final class Numeric {
 
     public static BigInteger decodeQuantity(String value) {
         if (!isValidHexQuantity(value)) {
-            //throw new MessageDecodingException("Value must be in format 0x[1-9]+[0-9]* or 0x0");
+//            throw new MessageDecodingException("Value ["+value+"] must be in format 0x[1-9]+[0-9]* or 0x0");
             return BigInteger.ZERO;
         }
         try {
