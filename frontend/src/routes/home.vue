@@ -57,7 +57,7 @@
         width: 400px;
     }
 
-    .vue-home .blocks li>.img {
+    .vue-home .blocks li > .img {
         background-color: #808080;
         flex-shrink: 0;
         height: 65px;
@@ -66,7 +66,7 @@
         margin-right: 13px;
     }
 
-    .vue-home .blocks li>.img>* {
+    .vue-home .blocks li > .img > * {
         color: white;
         display: block;
         text-align: center;
@@ -97,12 +97,12 @@
         border-left: 2px solid;
     }
 
-    .vue-home .txs li>img {
+    .vue-home .txs li > img {
         flex-shrink: 0;
         margin: 0 20px;
     }
 
-    .vue-home .txs li tr>td:first-child {
+    .vue-home .txs li tr > td:first-child {
         height: 20px;
         width: 40px;
     }
@@ -132,7 +132,7 @@
         max-width: 950px;
     }
 
-    .vue-home .chart_banner{
+    .vue-home .chart_banner {
         background-color: #3498DB;
         padding: 20px;
         height: 225px;
@@ -141,6 +141,7 @@
     .vue-home .chart_banner {
         color: whitesmoke;
     }
+
     .vue-home .chart_banner .name {
         font-size: 15px;
     }
@@ -184,7 +185,7 @@
     }
 </style>
 <template>
-    <div class="container vue-home"  style="background-color: #f7f7f7;padding-top: 30px">
+    <div class="container vue-home" style="background-color: #f7f7f7;padding-top: 30px">
         <div class=top>
             <div class=row>
                 <div class=col-md-6>
@@ -205,7 +206,9 @@
                                 <span class=msg_change_right>$ {{ numberAddComma(market.marketCap) }}</span>
                             </div>
                         </div>
-                        <div class="mt16 updataTime">update time : {{ timeConversion(Date.now() - market.createdAt) }} ago</div>
+                        <div class="mt16 updataTime">update time : {{ timeConversion(Date.now() - market.createdAt) }}
+                            ago
+                        </div>
                     </div>
                 </div>
                 <div class=col-md-6>
@@ -223,20 +226,27 @@
                             <span class="fa fa-th-large" aria-hidden=true></span>
                             Blocks
                         </div>
-                        <router-link class="btn btn-default pull-right" v-bind:to='fragApi + "/blocks"' role=button>View All</router-link>
+                        <router-link class="btn btn-default pull-right" v-bind:to='fragApi + "/blocks"' role=button>View
+                            All
+                        </router-link>
                     </div>
                     <ul class="blocks list">
                         <li class=li v-for="o in blocks">
                             <div class=img>
-                                <router-link class=mt20 v-bind:to='fragApi + "/block/" + o.height'>block {{ o.height }}</router-link>
+                                <router-link class=mt20 v-bind:to='fragApi + "/block/" + o.height'>block {{ o.height
+                                    }}
+                                </router-link>
                                 <div class=mt20>{{ timeConversion(msVmReady - o.timestamp) }} ago</div>
                             </div>
                             <div class=right>
                                 Mined By
-                                <router-link class=monospace v-bind:to='fragApi + "/address/" + o.miner.hash'>{{ o.miner.hash }}</router-link>
+                                <router-link class=monospace v-bind:to='fragApi + "/address/" + o.miner.hash'>{{
+                                    o.miner.hash }}
+                                </router-link>
                                 <div class=mt16>
                                     <router-link v-bind:to='fragApi + "/txs?block=" + o.height'>
-                                        <b>{{ o.txnCnt }}</b> transactions</router-link>
+                                        <b>{{ o.txnCnt }}</b> transactions
+                                    </router-link>
                                 </div>
                             </div>
                         </li>
@@ -248,33 +258,45 @@
                             <span class="fa fa-list" aria-hidden=true></span>
                             Transaction
                         </div>
-                        <router-link class="btn btn-default pull-right" v-bind:to='fragApi + "/txs"' role=button>View All</router-link>
+                        <router-link class="btn btn-default pull-right" v-bind:to='fragApi + "/txs"' role=button>View
+                            All
+                        </router-link>
                     </div>
                     <ul class="list txs">
                         <li class=li v-for="o in txs">
                             <img src=/static/img/icon.png height=43 width=43 alt="">
-                            <div>
-                                <table>
-                                    <tr>
+                            <div style="width: 100%">
+                                <table style="width: 100%">
+                                    <tr style="width: 100%">
                                         <td>TX#</td>
                                         <td>
-                                            <router-link class=monospace v-bind:to='fragApi + "/tx/"+ o.hash'>{{ o.hash }}</router-link>
+                                            <router-link class=monospace v-bind:to='fragApi + "/tx/"+ o.hash'
+                                                         style="width: 250px">{{ o.hash.toUpperCase() }}
+                                            </router-link>
+                                        </td>
+                                        <td style="width: 80px;text-align: right"> &nbsp;>{{timeConversion(msVmReady -
+                                            o.timestamp)}} ago
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>From</td>
-                                        <td>
-                                            <router-link class=monospace v-bind:to='fragApi + "/address/" + o.from.hash'>{{ o.from.hash }}</router-link>
+                                        <td colspan="2">
+                                            <router-link class=monospace v-bind:to='fragApi + "/address/" + o.from.hash'
+                                                         style="float:left; width: 80px">{{ o.from.hash }}
+                                            </router-link>
+                                            <span style="float: left; margin-left: 10px;text-align: center">To</span>
+                                            <router-link class=monospace v-bind:to='fragApi + "/address/" + o.to.hash'
+                                                         style=" float:left; width: 80px;margin-left: 10px">{{ o.to.hash
+                                                }}
+                                            </router-link>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>To</td>
-                                        <td>
-                                            <router-link class=monospace v-bind:to='fragApi + "/address/" + o.to.hash'>{{ o.to.hash }}</router-link>
+                                        <td>Amount</td>
+                                        <td colspan="2">
+                                            <span style="margin-left: 5px">{{ toWei(o.value) }}</span>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan=2> > {{timeConversion(msVmReady - o.timestamp)}} ago</td>
+
                                     </tr>
                                 </table>
                             </div>
@@ -353,7 +375,7 @@
                         }
                     },
                     xAxis: {
-                        title: { text: '' },
+                        title: {text: ''},
                         type: "datetime"
                     },
                     yAxis: {
@@ -381,11 +403,14 @@
                 // https://github.com/vuejs/vue/issues/5682
                 // "In 2.x a component's entire render function is called when it is updated."
                 return utility.timeConversion(ms);
+            },
+            toWei(n) {
+                return utility.toWei(n);
             }
         },
         mounted() {
-            api.getBlock({ type: "latest" }, o => this.blocks = o);
-            api.getTx({ type: "latest" }, o => this.txs = o);
+            api.getBlock({type: "latest"}, o => this.blocks = o);
+            api.getTx({type: "latest"}, o => this.txs = o);
             api.getMarketCap(o => this.market = o);
 
             api.getTx("cnt_static", o => {
@@ -394,7 +419,9 @@
                 if (div) {
                     for (i in o) arr.push([Date.parse(i), o[i]]);
 
-                    arr.sort(function (a, b) { return a[0] - b[0]; });
+                    arr.sort(function (a, b) {
+                        return a[0] - b[0];
+                    });
 
                     // series 全部是 0 时没法计算纵坐标, highcharts 会把一条线居中显示. 如果想让线靠下就需要给 max 一个非零的值比如 1
                     // this.chartConfig.yAxis.max = 1;
