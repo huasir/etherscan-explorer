@@ -311,6 +311,14 @@
     var api = require("@/assets/api"),
         utility = require("@/assets/utility");
 
+    function getDate(timestamp) {
+        var date = new Date(timestamp);
+        var Y = date.getFullYear() + '-';
+        var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+        var D = date.getDate() + ' ';
+        return Y+M+D;
+    }
+
     module.exports = {
         data() {
             return {
@@ -351,7 +359,7 @@
                     },
                     tooltip: {
                         formatter: function () {
-                            return '<span style="font-size:10px">' + this.point.friendlydate + '</span><br><table><tr><td style="padding:0">' +
+                            return '<span style="font-size:10px">' + getDate(this.point.category) + '</span><br><table><tr><td style="padding:0">' +
                                 '<span style="color:' + this.series.color + '">Transactions: </a></span><b>' + this.point.y + '</b><br>'
                             '</td></tr></table>';
                         }
@@ -361,13 +369,6 @@
                             animation: {
                                 duration: 0
                             },
-                            point: {
-                                events: {
-                                    select: function (e) {
-                                        location.href = 'txs?dt=' + this.options.dt;
-                                    }
-                                }
-                            }
                         },
                         column: {
                             pointPadding: 0.1,
