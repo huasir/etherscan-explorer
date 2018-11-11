@@ -29,12 +29,9 @@
         <div class=container>
             <h4>About</h4>
             <div class="justify-content-center row">
-                <div class=col-1></div>
-                <div class=col-2>
-                    <div>
-                        <!-- <span class="fa fa-(nebulas?)" aria-hidden=true></span> -->
-                        <a target=_blank href=http://ethereumai.io>etherumai.io</a>
-                    </div>
+                <!--<div class=col-1><img src="/static/img/logo2.png" height="65px" width="65px"></div>-->
+                <div class=col-2></div>
+                <div class=col-4 style="text-align: center">
                     <div>
                         <span class="fa fa-facebook-f" aria-hidden=true></span>
                         <a target=_blank href=#>Facebook</a>
@@ -48,8 +45,7 @@
                         <a target=_blank href=#>Twitter</a>
                     </div>
                 </div>
-                <div class=col-1></div>
-                <div class=col-3>
+                <div class=col-4 style="text-align: center">
                     <div>
                         <span class="fa fa-github" aria-hidden=true></span>
                         <a target=_blank href=https://github.com>Github.com</a>
@@ -62,7 +58,9 @@
                         <span class="fa fa-github" aria-hidden=true></span>
                         <a target=_blank href=https://github.com>Commit</a>
                     </div>
+                    <!--</div>-->
                 </div>
+                <div class=col-2></div>
             </div>
         </div>
     </div>

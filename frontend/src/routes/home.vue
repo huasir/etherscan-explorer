@@ -53,9 +53,9 @@
         width: 350px;
     }
 
-    .vue-home .txs li .monospace {
-        width: 400px;
-    }
+    /*.vue-home .txs li .monospace {*/
+        /*width: 400px;*/
+    /*}*/
 
     .vue-home .blocks li > .img {
         background-color: #808080;
@@ -265,22 +265,22 @@
                     <ul class="list txs">
                         <li class=li v-for="o in txs">
                             <img src=/static/img/icon.png height=43 width=43 alt="">
-                            <div style="width: 100%">
-                                <table style="width: 100%">
-                                    <tr style="width: 100%">
+                            <div>
+                                <table>
+                                    <tr>
                                         <td>TX#</td>
                                         <td>
                                             <router-link class=monospace v-bind:to='fragApi + "/tx/"+ o.hash'
-                                                         style="width: 250px">{{ o.hash.toUpperCase() }}
+                                            style="width: 50%;float: left">{{ o.hash.toUpperCase() }}
                                             </router-link>
-                                        </td>
-                                        <td style="width: 80px;text-align: right"> &nbsp;>{{timeConversion(msVmReady -
-                                            o.timestamp)}} ago
+
+                                             <span style="width: 30%;float: right">{{timeConversion(msVmReady -
+                                                o.timestamp)}} ago</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>From</td>
-                                        <td colspan="2">
+                                        <td>
                                             <router-link class=monospace v-bind:to='fragApi + "/address/" + o.from.hash'
                                                          style="float:left; width: 80px">{{ o.from.hash }}
                                             </router-link>
@@ -293,7 +293,7 @@
                                     </tr>
                                     <tr>
                                         <td>Amount</td>
-                                        <td colspan="2">
+                                        <td>
                                             <span style="margin-left: 5px">{{ toWei(o.value) }}</span>
                                         </td>
 
