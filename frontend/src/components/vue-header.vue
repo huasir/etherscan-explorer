@@ -60,7 +60,7 @@
     }
 </style>
 <template>
-    <nav class="bg-light navbar navbar-expand-lg navbar-light vue-header">
+    <nav class="navbar navbar-expand-lg navbar-light vue-header" style="background-color: #FFFFFF;border-bottom: solid 2px #eee">
         <div class=container>
             <div>
                 <router-link v-bind:to="fragApi + '/'" class=navbar-brand>

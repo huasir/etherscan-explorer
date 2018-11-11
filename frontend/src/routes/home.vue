@@ -184,7 +184,7 @@
     }
 </style>
 <template>
-    <div class="container vue-home">
+    <div class="container vue-home"  style="background-color: #f7f7f7;padding-top: 30px">
         <div class=top>
             <div class=row>
                 <div class=col-md-6>
