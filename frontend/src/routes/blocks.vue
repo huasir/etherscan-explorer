@@ -32,7 +32,7 @@
                     <td class=monospace>
                         <router-link v-bind:to='fragApi + "/address/" + o.miner.hash'>{{ o.miner.alias || o.miner.hash }}</router-link>
                     </td>
-                    <td class=text-right>{{ toWei(o.gasReward) }}</td>
+                    <td class=text-right>5 tch</td>
                     <td class=text-right>{{ numberAddComma(o.gasLimit) }}</td>
                     <td class=text-right>{{ toWei(o.avgGasPrice) }}</td>
                 </tr>

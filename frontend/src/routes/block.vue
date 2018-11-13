@@ -116,7 +116,7 @@
                 -->
                 <tr>
                     <td>Gas Reward</td>
-                    <td>{{ toWei(block.gasReward) }}</td>
+                    <td>5 tch</td>
                 </tr>
             </table>
         </div>

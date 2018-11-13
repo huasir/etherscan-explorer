@@ -133,7 +133,7 @@
     }
 
     .vue-home .chart_banner {
-        background-color: #3498DB;
+        background-color: #24537A;
         padding: 20px;
         height: 225px;
     }
@@ -274,7 +274,7 @@
                                             style="width: 50%;float: left">{{ o.hash.toUpperCase() }}
                                             </router-link>
 
-                                             <span style="width: 30%;float: right">{{timeConversion(msVmReady -
+                                             <span style="width: 30%;float: right;margin-right: 20px">{{timeConversion(msVmReady -
                                                 o.timestamp)}} ago</span>
                                         </td>
                                     </tr>
@@ -366,6 +366,7 @@
                     },
                     plotOptions: {
                         series: {
+                            color:'#24537A',
                             animation: {
                                 duration: 0
                             },
