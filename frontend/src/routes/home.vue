@@ -416,10 +416,9 @@
             this.timerB = setInterval(() => {
                  this.msVmReady = Date.now();
                  api.getBlock({type: "latest"}, o => this.blocks = o);
-            }, 2000);
+            }, 1000);
 
              this.timerT = setInterval(() => {
-                  this.msVmReady = Date.now();
                  api.getTx({type: "latest"}, o => this.txs = o);
             }, 5000);
 
