@@ -414,12 +414,12 @@
         },
         mounted() {
             this.timerB = setInterval(() => {
-                 msVmReady = Date.now();
+                 this.msVmReady = Date.now();
                  api.getBlock({type: "latest"}, o => this.blocks = o);
             }, 2000);
 
              this.timerT = setInterval(() => {
-                  msVmReady = Date.now();
+                  this.msVmReady = Date.now();
                  api.getTx({type: "latest"}, o => this.txs = o);
             }, 5000);
 
